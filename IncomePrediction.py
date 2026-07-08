@@ -17,9 +17,14 @@ regr = linear_model.LinearRegression()
 regr.fit(df[['year']],df.percapitaincomeUS)
 print(regr.feature_names_in_)
 
+# 4. Predict for 2020 and PRINT the result
 X = pd.DataFrame({'year':[2020]})
 print(regr.predict(X))
+print("\n--- Prediction ---")
+print(f"Predicted per capita income for X: {regr.predict(X)[0]}")
 
+# 5. Plot the Regression Line
+print("\nShowing regression line plot...")
 plt.xlabel('year', fontsize=20)
 plt.ylabel('percapitaincomeUS', fontsize=20)
 plt.scatter(df.year,df.percapitaincomeUS, color='red')
